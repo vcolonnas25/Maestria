@@ -5,6 +5,13 @@ import dateparser
 from io import BytesIO
 
 st.set_page_config(page_title="Extractor de Celulares y Fechas", layout="wide")
+
+# 🔐 Protección con contraseña
+password = st.text_input("🔒 Ingrese la contraseña para acceder:", type="password")
+if password != "miclave123":
+    st.warning("🔐 Acceso restringido. Introduce la contraseña correcta.")
+    st.stop()
+
 st.title("📄 Extracción de Celulares y Fechas desde Excel")
 
 uploaded_file = st.file_uploader("Sube tu archivo Excel (.xlsx):", type=["xlsx"])
